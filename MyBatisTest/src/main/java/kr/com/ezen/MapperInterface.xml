@@ -6,7 +6,20 @@
 
 	<insert id="insertMember">
 		insert into member (id, name, phone, address)
-		values (#{id},#{name},#{phone},#{address})
+		values
+		(#{id},#{name},#{phone},#{address})
 	</insert>
+
+	<update id="updateMember">
+		update member set
+		name = #{name},
+		phone = #{phone},
+		address = #{address}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteMember">
+		delete from member where id = #{id}
+	</delete>
 
 </mapper>
