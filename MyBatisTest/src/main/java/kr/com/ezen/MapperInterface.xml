@@ -22,4 +22,13 @@
 		delete from member where id = #{id}
 	</delete>
 
+	<!-- resultType = "가져올 값의 경로를 기입", parameterType="int" 생략가능-->
+	<select id="selectMemberOne" resultType="kr.com.ezen.MemberVO">
+		SELECT * FROM member WHERE ID = #{id}
+	</select>
+	
+	<select id="selectMemberList" resultType="kr.com.ezen.MemberVO">
+		SELECT * FROM member order by ID DESC
+	</select>
+
 </mapper>

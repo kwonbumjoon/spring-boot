@@ -1,6 +1,7 @@
 package kr.com.ezen;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -25,20 +26,32 @@ public class Mainclass {
 
 			MemberVO vo = new MemberVO();
 //			member에 정보 기입
-			vo.setId(1);
-			vo.setName("장합");
-			vo.setPhone("010-3333-9999");
-			vo.setAddress("서울시 도봉구");
+			vo.setId(4);
+			vo.setName("조조");
+			vo.setPhone("010-5555-8888");
+			vo.setAddress("서울시 관악구");
 			
-//			정보 업데이트(새로운 정보 기입, 정보 수정)
+//			정보 기입
+//			mapper.insertMember(vo);
+			
+//			정보 업데이트(정보 수정)
 //			mapper.updateMember(vo);
 			
 //			정보 업데이트(기존의 정보 삭제)
-			mapper.deleteMember(1);
+//			mapper.deleteMember(1);
 
 //			int result = mapper.insertMember(vo);
 //			System.out.println("성공이면 " + result);
 
+//			선택한 member 값 불러오기
+//			vo = mapper.selectMemberOne(1);
+//			System.out.println(vo);
+			
+			List<MemberVO> list = mapper.selectMemberList();
+			
+			for(MemberVO v2 : list)
+				System.out.println(v2);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
