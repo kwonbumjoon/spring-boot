@@ -9,3 +9,5 @@ C:\java\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3855838732.
 \SampleTest\src\main\java
 C:\java\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3080424700.index
 \MyBatisTest\src\main\java
+C:\java\Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1058403564.index
+\test2\src\main\java
