@@ -28,7 +28,7 @@ public class JDBCConnectionTest {
 					"1234"
 					);
 //			출력시 원하는 레벨로 설정하여 필요없는 에러는 안보이게 끔 설정 및 출력
-			log.info(con);
+			log.info("Con : " + con);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

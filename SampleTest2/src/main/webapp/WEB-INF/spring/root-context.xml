@@ -3,6 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- HikariConfig hikariConfig = new HikariConfig(); 아래 bean id와 같은 것 -->
+	<!-- jdbc 연결 설정 -->
+ 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="test2"></property>
+		<property name="password" value="1234"></property>
+	</bean>
 		
+	<!-- HikariCP Connection Pool -->
+	<!-- jdbc연결 설정 정보를 이용해서 커넥션 풀 생성 -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
+
 </beans>
