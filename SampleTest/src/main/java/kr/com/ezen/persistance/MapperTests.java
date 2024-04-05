@@ -58,7 +58,7 @@ public class MapperTests {
 					.address("경기도 수원시")
 					.build();
 			
-			memberMapper.insertMember(vo);
+			memberMapper.updateMember(vo);
 	}
 	
 	@Test
