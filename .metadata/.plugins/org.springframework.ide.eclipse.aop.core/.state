@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="SampleTest"/>
+<aop-project name="test2"/>
 <aop-project name="test"/>
+<aop-project name="SampleTest2"/>
+<aop-project name="ex00"/>
+<aop-project name="ex01"/>
 <aop-project name="MyBatisTest"/>
 </aop-reference-model>
