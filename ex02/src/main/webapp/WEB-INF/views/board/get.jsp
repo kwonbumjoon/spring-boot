@@ -29,12 +29,12 @@
 
                             	<div class="form-group">
 	                            	<label>Title</label>
-	                            	<input name="bno" class="form-control" value='<c:out value="'${board.title }'"/>' readonly="readonly">
+	                            	<input name="bno" class="form-control" value="<c:out value='${board.title }'/>" readonly="readonly">
                             	</div>
 
                             	<div class="form-group">
 	                            	<label>Text Area</label>
-	                            	<textarea name="content" role="3" class="form-control" value="${board.content }" readonly="readonly"></textarea>
+	                            	<textarea name="content" role="3" class="form-control" readonly="readonly">${board.content }</textarea>
                             	</div>
 
                             	<div class="form-group">
