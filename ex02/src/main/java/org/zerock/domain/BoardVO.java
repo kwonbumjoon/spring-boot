@@ -2,7 +2,10 @@ package org.zerock.domain;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //create table tbl_board(
 //	    bno number(10,0),
@@ -14,6 +17,9 @@ import lombok.Data;
 //	);
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BoardVO {
 	private Long bno;
 	private String title;
