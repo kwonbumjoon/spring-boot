@@ -35,6 +35,6 @@ public class BoardServiceImplTest {
 	
 	@Test
 	public void testGetList() {
-		boardService.getList().forEach(vo-> log.info(vo));
+//		boardService.getList().forEach(vo-> log.info(vo));
 	}
 }

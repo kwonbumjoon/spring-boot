@@ -16,33 +16,35 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<div class="form-group">
-					<label>Title</label> <input name="title" class="form-control">
-				</div>
-
-				<div class="form-group">
 					<label>Bno</label> 
-					<input name="bno" class="form-control" value="${board.bno }" readonly="readonly">
+					<input name="bno" class="form-control" value="${board.bno}" readonly="readonly">
 				</div>
 
 				<div class="form-group">
 					<label>Title</label> 
-					<input name="bno" class="form-control"	value="<c:out value='${board.title }'/>" readonly="readonly">
+					<input name="title" class="form-control" value="<c:out value='${board.title}'/>" readonly="readonly">
 				</div>
 
 				<div class="form-group">
 					<label>Text Area</label>
 					<textarea name="content" role="3" class="form-control" readonly="readonly">
-                   	${board.content }
+                   	${board.content}
                    	</textarea>
 				</div>
 
 				<div class="form-group">
 					<label>Writer</label> 
-					<input name="writer" class="form-control" value="${board.writer }" readonly="readonly">
+					<input name="writer" class="form-control" value="${board.writer}" readonly="readonly">
 				</div>
 				
-				<button data-oper='modify' class="btn btn-default" onclick="location.href='/board/modify?bno=${board.bno}'">Modify</button>
-				<button data-oper="list" class="btn btn-info" onclick="location.href='/board/list'">List</button>
+				<button data-oper='modify' class="btn btn-default">Modify</button>
+				<button data-oper="list" class="btn btn-info">List</button>
+				
+				<form id="operForm" action="/board/modify" method="get">
+					<input type="hidden" id="bno" name="bno" value="${board.bno}">
+					<input type="hidden" name="pageNum" value="${cri.pageNum}">
+					<input type="hidden" name="amount" value="${cri.amount}">
+				</form>
 			</div>
 			<!-- /.panel-body -->
 		</div>
@@ -52,4 +54,20 @@
 </div>
 <!-- /.row -->
 
-<%@ include file="../includes/footer.jsp"%>
+<script>
+ 	$(document).ready(function(){
+ 		var operForm = $("#operForm");
+ 		
+ 		$("button[data-oper='modify']").on("click",function(e){
+ 			/* operForm.attr("action", "/board/modify").submit(); */
+ 			operForm.submit();
+ 		});
+
+ 		$("button[data-oper='list']").on("click",function(e){
+ 			operForm.find("#bno").remove();
+ 			operForm.attr("action", "/board/list").submit();
+ 		});
+ 		
+ 	});
+ </script>      
+ <%@ include file="../includes/footer.jsp" %>
