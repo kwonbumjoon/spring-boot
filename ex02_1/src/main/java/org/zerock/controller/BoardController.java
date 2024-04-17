@@ -26,8 +26,7 @@ import oracle.jdbc.proxy.annotation.Post;
 public class BoardController {
 
 	private final BoardService boardService;
-	
-	
+
 	
 	@GetMapping("/list")
 	public void list(Criteria cri,  Model model){   
@@ -45,7 +44,7 @@ public class BoardController {
 	}
 	
 	
-	@GetMapping("/register")
+	@GetMapping("/register")	// WEB_INF/views/board/register.jsp
 	public void register() {
 		
 	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../includes/header.jsp"%>
 
 <div class="row">
@@ -28,13 +29,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="odd gradeX">
-							<td>Trident</td>
-							<td>Internet Explorer 4.0</td>
-							<td>Win 95+</td>
-							<td class="center">4</td>
-							<td class="center">X</td>
-						</tr>
+						<c:forEach var="board" items="${list}">
+							<tr class="odd gradeX">
+								<td>${board.bno}</td>
+								<td>${board.title}</td>
+								<td>${board.writer}</td>
+								<td><fmt:formatDate value="${board.regdate}"
+										pattern="yyyy-MM-dd" /></td>
+								<td><fmt:formatDate value="${board.updateDate}"
+										pattern="yyyy-MM-dd" /></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				<!-- /.table-responsive -->
@@ -45,7 +50,44 @@
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
+<!-- /.row -->
 
+<!-- The Modal -->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Modal Heading</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">Modal body..</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- End The Modal -->
+
+<script>
+	$(document).ready(function() {
+		let result = ${result};
+		
+		checkModal();
+		
+		function checkModal(){
+			$("#myModal").modal("show");
+		}
+
+	});
+</script>
 
 
 <%@ include file="../includes/footer.jsp"%>
