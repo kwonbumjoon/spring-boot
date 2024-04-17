@@ -91,7 +91,7 @@ public class BoardMapperTests {
 	@Test
 	public void testGetListWithPageing() {
 		
-		Criteria cri = new Criteria(1,10);
+		Criteria cri = new Criteria(3,10);
 		
  		List<BoardVO> list = boardMapper.getListWithPaging(cri);
  		

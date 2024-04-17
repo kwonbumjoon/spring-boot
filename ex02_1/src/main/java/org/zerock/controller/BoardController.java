@@ -34,7 +34,7 @@ public class BoardController {
 		
 		model.addAttribute("list", boardService.getList(cri));  //views/board/list.jsp
 		
-		model.addAttribute("pageMaker", new PageDTO(cri, 30));	// 30개의 데이터를 보여주겠다.
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));	// 30개의 데이터를 보여주겠다.
 		
 //		int total = boardService.getTotal(cri);
 //		
