@@ -26,7 +26,8 @@ import oracle.jdbc.proxy.annotation.Post;
 public class BoardController {
 
 	private final BoardService boardService;
-
+	
+	
 	
 	@GetMapping("/list")
 	public void list(Criteria cri,  Model model){   
@@ -34,17 +35,16 @@ public class BoardController {
 		
 		model.addAttribute("list", boardService.getList(cri));  //views/board/list.jsp
 		
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));	// 30개의 데이터를 보여주겠다.
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
-//		int total = boardService.getTotal(cri);
-//		
-//		log.info("total : " + total);
-//		
-//		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		int total = boardService.getTotal(cri);
+		
+		log.info("total : " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
-	
-	@GetMapping("/register")	// WEB_INF/views/board/register.jsp
+	@GetMapping("/register")  //  WEB_INF/views/board/register.jsp
 	public void register() {
 		
 	}
@@ -75,8 +75,11 @@ public class BoardController {
 		if(boardService.modify(board)) {  //board입력받아서 수정 성공하면 true, 실패하면 false
 			rttr.addFlashAttribute("result", "modify");
 		}
+		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 		
@@ -91,6 +94,8 @@ public class BoardController {
 		}
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 	}

@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../includes/header.jsp"%>
 
 <div class="row">
@@ -21,6 +19,8 @@
 				<form role="form" action="/board/modify" method="post">
 					<input type="hidden" name="pageNum" value="${cri.pageNum}">
 					<input type="hidden" name="amount" value="${cri.amount}">
+					<input type="hidden" name="type" value=${cri.type}>
+					<input type="hidden" name="keyword" value=${cri.keyword}>
 					
 					<div class="form-group">
 						<label>Bno</label>
@@ -57,7 +57,7 @@
 
 
 <script>
-	$(document).ready(function() {
+	/* $(document).ready(function() {
 		
 		let formObj = $("form");
 		
@@ -74,16 +74,51 @@
 				
 				let pageNumTag = $("input[name='pageNum']").clone();
 				let amountTag = $("input[name='amount']").clone();
-				
+				let typeTag = $("input[name='type']").clone();
+ 				let keywordTag = $("input[name='keyword']").clone();
+ 				
 				formObj.empty();
 				
 				formObj.append(pageNumTag);
 				formObj.append(amountTag);
+				formObj.append(typeTag);
+ 				formObj.append(keywordTag);
 			}
 			formObj.submit();
 		});
 
-	});
+	}); */
+	$(document).ready(function(){
+ 		
+ 		let formObj = $("form");
+ 		
+ 		$('button').on("click", function(e){
+ 			e.preventDefault();  //<form role="form" action="/board/modify" method="post"> 이동 중지
+ 			
+ 			let operation = $(this).data("oper");
+ 			
+ 			if(operation === 'remove'){
+ 				formObj.attr("action", "/board/remove"); 				
+ 			}else if(operation === 'list'){
+ 				formObj.attr("action", "/board/list").attr("method","get");
+ 				
+ 				let pageNumTag = $("input[name='pageNum']").clone();
+ 				let amountTag = $("input[name='amount']").clone();
+ 				let typeTag = $("input[name='type']").clone();
+ 				let keywordTag = $("input[name='keyword']").clone();
+ 			
+ 				formObj.empty();
+ 				
+ 				formObj.append(pageNumTag);
+ 				formObj.append(amountTag);
+ 				formObj.append(typeTag);
+ 				formObj.append(keywordTag);
+ 			
+ 			}
+ 			formObj.submit();
+ 		});
+ 		
+ 	});
 </script>
 
 

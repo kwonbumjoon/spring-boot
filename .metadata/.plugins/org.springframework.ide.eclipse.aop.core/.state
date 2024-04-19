@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="ex02_1"/>
+<aop-project name="ex02_2"/>
 <aop-project name="SampleTest"/>
 <aop-project name="test2"/>
 <aop-project name="test"/>
@@ -7,5 +9,6 @@
 <aop-project name="ex00"/>
 <aop-project name="ex01"/>
 <aop-project name="ex02"/>
+<aop-project name="ex03"/>
 <aop-project name="MyBatisTest"/>
 </aop-reference-model>
