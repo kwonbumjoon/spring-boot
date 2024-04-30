@@ -10,12 +10,18 @@
 	<!-- 비밀번호 -> 암호화 해줌 -->
 	<bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	<bean id="customAccessDenied" class="org.zerock.security.CustomAccessDeniedhandler"></bean>
-	
+	<bean id="customLoginSuccessHandler" class="org.zerock.security.CustomLoginSuccessHandler"></bean>
 	<security:http>
 		<security:intercept-url pattern="/sample/all" access="permitAll"/>
 		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
-		<security:form-login />
+		
+		<!-- <security:csrf disabled="true"/> -->
+		
+		<!-- <security:form-login /> -->
+		
+		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccessHandler"/>
+		<security:logout logout-url="/customLogout" invalidate-session="true"/>
 		
 		<security:access-denied-handler ref="customAccessDenied"/>		
 		<!-- <security:access-denied-handler error-page="/accessError"/> -->
