@@ -71,7 +71,7 @@ public class PasswordTest {
 	public void testPassword() {
 		log.info("bCryptPasswordEncoder : " + pwEncoder);
 
-		String str = "1234";
+		String str = "1111";
 
 		String encodeStr = pwEncoder.encode(str);
 
